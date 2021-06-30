@@ -50,7 +50,7 @@
   <div class="form-group row">
     <div class="col-sm-10">
       <button type="submit" class="btn btn-primary">Registrar</button>
-     <a href="${pageContext.request.contextPath}/buscarPais.jsp" class="btn btn-primary">Volver</a>
+     <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary">Volver</a>
     </div>
     </div>
 

@@ -92,13 +92,23 @@ public class CountryServlet extends HttpServlet {
 		
 	}
 
-	private void buscar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		Country coun = new Country();
+		coun.setId(id);
+		Country aux = cDAO.find(coun.getId());
+		request.getSession().setAttribute("country", aux);
+		request.getRequestDispatcher("registroPais.jsp").forward(request, response);
 		
 	}
 	
-	private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		Country coun = new Country();
+		Country aux = cDAO.find(id);
+		coun.setId(id);
+		cDAO.delete(aux);
+		request.getRequestDispatcher("listaPais.jsp").forward(request, response);
 		
 	}
 
